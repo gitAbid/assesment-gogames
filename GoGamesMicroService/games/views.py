@@ -12,7 +12,7 @@ class GamesApi(APIView):
 
     def get(self, request):
         games = Game.objects.all()
-        category = self.request.query_params.get('category', 0)
+        category = self.request.query_params.get('category_id', 0)
         if category is 0:
             serializer = GameSerializer(games, many=True)
         else:
